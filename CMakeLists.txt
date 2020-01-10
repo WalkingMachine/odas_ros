@@ -11,6 +11,11 @@ find_package(
 
 )
 
+# Install FFTW
+execute_process (
+    COMMAND bash -c "../src/odas_ros/install.sh"
+)
+
 #External ODAS git repository
 #TODO change revision number to latest suitable version
 include(ExternalProject)
@@ -57,12 +62,12 @@ include_directories(
 #
 
 # Hops from file
-add_executable(src_hops_file 
+add_executable(src_hops_file
 	src/source/src_hops_file.cpp
 )
 
-add_dependencies(src_hops_file 
-	odas_ros_generate_messages_cpp 
+add_dependencies(src_hops_file
+	odas_ros_generate_messages_cpp
 	odas_lib
 )
 
@@ -80,7 +85,7 @@ add_executable(
 
 add_dependencies(
         src_hops_soundcard
-	odas_ros_generate_messages_cpp 
+	odas_ros_generate_messages_cpp
 	odas_lib
 )
 
@@ -122,7 +127,7 @@ add_executable(
 
 add_dependencies(
 	mod_mapping
-	odas_ros_generate_messages_cpp 
+	odas_ros_generate_messages_cpp
 	odas_lib
 )
 
@@ -141,7 +146,7 @@ add_executable(
 
 add_dependencies(
 	mod_resample
-	odas_ros_generate_messages_cpp 
+	odas_ros_generate_messages_cpp
 	odas_lib
 )
 
@@ -160,7 +165,7 @@ add_executable(
 
 add_dependencies(
 	mod_stft
-	odas_ros_generate_messages_cpp 
+	odas_ros_generate_messages_cpp
 	odas_lib
 )
 
@@ -180,7 +185,7 @@ add_executable(
 
 add_dependencies(
 	mod_ssl
-	odas_ros_generate_messages_cpp 
+	odas_ros_generate_messages_cpp
 	odas_lib
 )
 
@@ -200,7 +205,7 @@ add_executable(
 
 add_dependencies(
 	mod_sst
-	odas_ros_generate_messages_cpp 
+	odas_ros_generate_messages_cpp
 	odas_lib
 )
 
@@ -240,7 +245,7 @@ target_link_libraries(
 
 #add_dependencies(
 #        mod_sspf
-#        odas_ros_generate_messages_cpp 
+#        odas_ros_generate_messages_cpp
 #	 odas_lib
 #)
 
@@ -263,7 +268,7 @@ add_executable(
 
 add_dependencies(
 	snk_hops_file
-	odas_ros_generate_messages_cpp 
+	odas_ros_generate_messages_cpp
 	odas_lib
 )
 
@@ -283,7 +288,7 @@ add_executable(
 
 add_dependencies(
         snk_spectra_file
-        odas_ros_generate_messages_cpp 
+        odas_ros_generate_messages_cpp
 	odas_lib
 )
 
@@ -303,7 +308,7 @@ add_executable(
 
 add_dependencies(
         snk_pots_file
-        odas_ros_generate_messages_cpp 
+        odas_ros_generate_messages_cpp
 	odas_lib
 )
 
@@ -323,7 +328,7 @@ add_executable(
 
 add_dependencies(
         snk_pots_socket
-        odas_ros_generate_messages_cpp 
+        odas_ros_generate_messages_cpp
 	odas_lib
 )
 
@@ -343,7 +348,7 @@ add_executable(
 
 add_dependencies(
         snk_pots_renard
-        odas_ros_generate_messages_cpp 
+        odas_ros_generate_messages_cpp
 	odas_lib
 )
 
@@ -363,7 +368,7 @@ add_executable(
 
 add_dependencies(
         snk_tracks_file
-        odas_ros_generate_messages_cpp 
+        odas_ros_generate_messages_cpp
 	odas_lib
 )
 
